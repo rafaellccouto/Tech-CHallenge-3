@@ -338,5 +338,5 @@ Para dúvidas técnicas ou metodológicas, consulte:
 
 ---
 
-**Última atualização:** 2020  
+**Última atualização:** 30/04/2026 
 **Próxima revisão:** Conforme novas ondas epidemiológicas
