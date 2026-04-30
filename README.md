@@ -291,7 +291,7 @@ VARIAVEIS = {
 ## 📚 Referências
 
 ### Documentação Oficial
-- [PNAD-COVID-19 IBGE](https://covid19.ibge.gov.br/pnad-covid/)
+- [PNAD-COVID-19 IBGE](https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=downloads&utm_source=covid19&utm_medium=hotsite&utm_campaign=covid_19)
 - [Dicionário de Variáveis](https://covid19.ibge.gov.br/pnad-covid/)
 
 ### Modelo SEIR
@@ -303,28 +303,18 @@ VARIAVEIS = {
 - Bi et al. (2020). "Epidemiology and transmission of COVID-19"
 
 ---
-
-## 🤝 Contribuindo
-
-Para melhorias ou correções:
-
-1. Criar branch: `git checkout -b feature/sua-melhoria`
-2. Commit: `git commit -am 'Descrição'`
-3. Push: `git push origin feature/sua-melhoria`
-4. Pull request
-
----
-
 ## 📝 Licença
 
 MIT License - Veja LICENSE.md
 
 ---
 
-## 👤 Autor
+## 👤 Autores
 
-**Expert em Data Analytics**  
-Contratado como especialista para análise de dados de saúde pública
+**Data Analytics**  
+Rafael Couto 
+Alex Oliveira 
+Ronaldo Rodrigues
 
 ---
 
@@ -337,18 +327,6 @@ Este projeto é baseado em dados públicos (PNAD-COVID-19) e modelos epidemioló
 - Recomendações devem ser adaptadas ao contexto local
 - Sempre consultar epidemiologistas e gestores de saúde
 - Dados podem variar por região e variante
-
----
-
-## ✅ Checklist de Implementação
-
-- [ ] Download dos dados PNAD-COVID-19
-- [ ] Execução do ETL
-- [ ] Análise Exploratória
-- [ ] Calibração do modelo SEIR
-- [ ] Validação com dados reais
-- [ ] Apresentação para tomadores de decisão
-- [ ] Implementação de plano de ação
 
 ---
 

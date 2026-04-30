@@ -42,11 +42,16 @@ def run_script(script_path, description):
     print_info(f"Executando: {description}")
     
     try:
+        # Converter para caminho absoluto
+        abs_script_path = Path(script_path).resolve()
+        script_dir = abs_script_path.parent
+        script_name = abs_script_path.name
+        
         result = subprocess.run(
-            [sys.executable, script_path],
+            [sys.executable, script_name],
             capture_output=False,
             check=True,
-            cwd=str(Path(script_path).parent)
+            cwd=str(script_dir)
         )
         print_success(f"{description} concluído!")
         return True
