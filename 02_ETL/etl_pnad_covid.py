@@ -139,7 +139,7 @@ def main():
     """Executa pipeline completo de ETL"""
     
     logger.info("=" * 80)
-    logger.info("🏥 PNAD-COVID-19: ETL e Preparação de Dados")
+    logger.info("PNAD-COVID-19: ETL e Preparação de Dados")
     logger.info("=" * 80)
     
     # 1. Criar estrutura de diretórios
