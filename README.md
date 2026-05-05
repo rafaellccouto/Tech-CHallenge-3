@@ -323,8 +323,10 @@ MIT License - Veja LICENSE.md
 
 ## 👤 Autor
 
-**Expert em Data Analytics**  
-Contratado como especialista para análise de dados de saúde pública
+**Data Analytics**  
+Rafael Couto<br>
+Alexsander Oliveira<br>
+Ronaldo Rodrigues<br>
 
 ---
 
