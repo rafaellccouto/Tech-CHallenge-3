@@ -5,11 +5,11 @@
 ### Passo 1.1: Clonar/Baixar o Projeto
 ```bash
 # Criar diretório
-mkdir -p ~/projetos/data_lake_covid
-cd ~/projetos/data_lake_covid
+mkdir -p ~/projetos/covid_analysis
+cd ~/projetos/covid_analysis
 
 # Se usando Git
-git clone <repositorio> .
+git clone https://github.com/rafaellccouto/Tech-CHallenge-3.git .
 ```
 
 ### Passo 1.2: Configurar Ambiente Python
@@ -40,13 +40,16 @@ python -c "import pandas, numpy, scipy; print('✓ Dependências OK')"
 ### Passo 1.4: Criar Estrutura de Diretórios
 
 ```bash
-# Criar pastas de dados
-mkdir -p dados/raw
-mkdir -p dados/processed
-mkdir -p dados/csv_meses
-mkdir -p relatorios/graficos
+# Os diretórios já existem no projeto, mas verificar:
+ls -la 01_Planejamento/
+ls -la 02_ETL/
+ls -la 03_Analise_Exploratoria/
+ls -la 04_Modelo_SEIR/
+ls -la 05_Relatorios/
+ls -la dados/
+ls -la relatorios/
 
-echo "✓ Estrutura criada"
+echo "✓ Estrutura validada"
 ```
 
 ---
@@ -337,13 +340,13 @@ cd ../04_Modelo_SEIR && python modelo_seir.py
 ### Passo 8.1: Preparar Apresentação para Decisores
 
 **Timeline:** 60 minutos
-
-| Tempo | Tópico | Responsável |
-|-------|--------|-------------|
-| 5 min | Contexto COVID-19 (2020) | Analista |
-| 10 min | Seleção 20 Variáveis PNAD | Analista |
-| 15 min | EDA: Sintomas + Comportamento | Analista |
-| 10 min | Índice β (Transmissão) | Cientista de Dados |
++ Estrutura PNAD | Analista |
+| 10 min | Seleção de 20 Variáveis: Como funciona | Analista |
+| 15 min | EDA: Sintomas + Comportamento + Vulnerabilidade | Analista |
+| 10 min | Índice β (Transmissão): Maio vs Agosto vs Novembro | Cientista de Dados |
+| 15 min | Cenários SEIR: 4 projeções comparadas | Epidemiologista |
+| 15 min | **Recomendações Críticas: 6 Pilares Estratégicos** | **Head de Dados** |
+| 10 min | Próximos Passosice β (Transmissão) | Cientista de Dados |
 | 15 min | Cenários SEIR (4 modelos) | Epidemiologista |
 | 15 min | **Recomendações Críticas** | **Head de Dados** |
 | 10 min | Q&A + Decisão | Todos |

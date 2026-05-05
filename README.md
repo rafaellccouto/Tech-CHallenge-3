@@ -18,46 +18,53 @@ Entender o comportamento da população durante a COVID-19 (Maio, Agosto, Novemb
 ## 📊 Estrutura do Projeto
 
 ```
-Data_Lake/
+PROJETO-COVID-19/
+│
+├── 📋 DOCUMENTAÇÃO CENTRAL
+│   ├── README.md                      # Visão geral do projeto (VOCÊ ESTÁ AQUI)
+│   ├── SUMARIO_FINAL.md               # Resumo de entrega
+│   ├── GUIA_EXECUCAO.md               # Passo-a-passo (8 fases)
+│   ├── ESTRUTURA_PROJETO.md           # Arquitetura técnica
+│   ├── 00_LEIA_PRIMEIRO.md            # Checklist inicial
+│   ├── 00_LEIA_MUDANCAS.md            # Mudanças recentes
+│   ├── FAQ_DICAS.md                   # Perguntas frequentes
+│   ├── SETUP_VENV.md                  # Setup do ambiente
+│   └── requirements.txt               # Dependências Python
+│
 ├── 01_Planejamento/
-│   ├── SELECAO_VARIAVEIS.md          # 20 variáveis selecionadas da PNAD
-│   └── CRONOGRAMA.md
+│   ├── SELECAO_VARIAVEIS.md           # 20 variáveis PNAD selecionadas
+│   └── CRONOGRAMA.md                  # Timeline 12 semanas
 │
 ├── 02_ETL/
-│   ├── etl_pnad_covid.py             # Pipeline de limpeza e transformação
-│   ├── requirements.txt
-│   └── README.md
+│   └── etl_pnad_covid.py              # Pipeline: Download → Limpeza → Consolidação
 │
 ├── 03_Analise_Exploratoria/
-│   ├── eda_pnad_covid.py             # Análise gráfica e estatística
-│   ├── relatorios/
-│   │   └── graficos/
-│   │       ├── 01_sintomas_evolucao.png
-│   │       ├── 02_taxa_internacao_sintomas.png
-│   │       ├── 03_comportamento_evolucao.png
-│   │       └── 04_indice_transmissao_beta.png
-│   └── README.md
+│   └── eda_pnad_covid.py              # Análise gráfica + cálculo β (transmissão)
 │
 ├── 04_Modelo_SEIR/
-│   ├── modelo_seir.py                # Implementação do modelo SEIR
-│   ├── relatorios/
-│   │   ├── graficos/
-│   │   │   ├── 05_seir_cenarios_completos.png
-│   │   │   └── 06_seir_comparacao_infectados.png
-│   │   └── metricas_seir_cenarios.csv
-│   └── README.md
+│   └── modelo_seir.py                 # 4 cenários SEIR + métricas
 │
 ├── 05_Relatorios/
-│   ├── RECOMENDACOES_HOSPITAL.md     # 🏥 Estratégias e ações
-│   ├── RELATORIO_EXECUTIVO.md        # Resumo para tomadores de decisão
-│   └── ANALISE_TECNICA.md            # Detalhes metodológicos
+│   ├── RECOMENDACOES_HOSPITAL.md      # 🏥 CRÍTICO: 6 pilares estratégicos
+│   ├── RELATORIO_EXECUTIVO.md         # Resumo para decisores
+│   └── ANALISE_TECNICA.md             # Detalhes metodológicos
 │
 ├── dados/
-│   ├── raw/                          # CSVs brutos do IBGE
-│   ├── processed/                    # Dados consolidados
-│   └── csv_meses/                    # Dados por mês
+│   ├── raw/                           # CSVs brutos do IBGE (Maio, Agosto, Novembro)
+│   ├── processed/                     # Base consolidada + indicadores
+│   └── csv_meses/                     # Dados por mês (processados)
 │
-└── README.md (este arquivo)
+├── relatorios/
+│   ├── graficos/                      # 6 gráficos gerados
+│   │   ├── 01_sintomas_evolucao.png
+│   │   ├── 02_taxa_internacao_sintomas.png
+│   │   ├── 03_comportamento_evolucao.png
+│   │   ├── 04_indice_transmissao_beta.png
+│   │   ├── 05_seir_cenarios_completos.png
+│   │   └── 06_seir_comparacao_infectados.png
+│   └── metricas_seir_cenarios.csv     # Tabela comparativa
+│
+└── .venv/                             # Ambiente Python (venv)
 ```
 
 ---
