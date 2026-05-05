@@ -107,63 +107,7 @@ Tempo total: 3-4 horas
 | 4 | **INDICE_NAVEGAVEL.md** | Mapa | 20 KB | 10 min | Todos |
 | 5 | **CONCLUSAO_ATUALIZACOES_MAIO_2026.md** | Resumo | 15 KB | 15 min | Todos |
 
-### ✅ **ARQUIVOS ATUALIZADOS (3)**
-
-| # | Arquivo | Mudança | Status |
-|---|---------|---------|--------|
-| 6 | **README.md** | Estrutura corrigida (sem Data_Lake) | ✅ |
-| 7 | **GUIA_EXECUCAO.md** | Caminhos atualizados | ✅ |
-| 8 | **00_LEIA_PRIMEIRO.md** | Guia por perfil adicionado | ✅ |
-
 ---
-
-## 🎯 3 PERGUNTAS DO USUÁRIO - RESPOSTAS
-
-### ❓ **Pergunta 1: "Atualize os MD que referenciam o diretório Data_Lake"**
-
-✅ **FEITO**
-- README.md: Estrutura corrigida ✓
-- GUIA_EXECUCAO.md: Caminhos atualizados ✓
-- 00_LEIA_PRIMEIRO.md: Nova orientação ✓
-
-**Mudança Principal:**
-```
-ANTES: Data_Lake/
-DEPOIS: PROJETO-COVID-19/
-        ├── 📋 DOCUMENTAÇÃO ESTRATÉGICA (NOVOS)
-        ├── 01_Planejamento/
-        ├── 02_ETL/
-        ... etc
-```
-
----
-
-### ❓ **Pergunta 2: "Faça um sumário/resumo visual do projeto"**
-
-✅ **FEITO (3 arquivos)**
-
-1. **RESUMO_EXECUTIVO_VISUAL.md** - Análise completa
-   - Organização do banco de dados
-   - Perguntas selecionadas + Respostas
-   - 6 Principais ações para hospital
-   - Impacto esperado
-
-2. **VISUAL_GRAFICOS_ASCII.md** - Visualizações impactantes
-   - 7 gráficos ASCII (Pipeline, Beta, Cenários, Leitos, Risco, Pilares, Timeline)
-   - Fácil de entender visualmente
-   - Pronto para imprimir/apresentar
-
-3. **PLANO_ACAO_90_DIAS.md** - Execução operacional
-   - 4 fases estruturadas
-   - Marcos inegociáveis por data
-   - Checklist dia-a-dia
-   - Dashboard de progresso
-
----
-
-### ❓ **Pergunta 3: "Breve análise + organização banco dados + perguntas + ações"**
-
-✅ **FEITO** em RESUMO_EXECUTIVO_VISUAL.md:
 
 #### **📊 Análise das Informações:**
 ```

@@ -3,8 +3,6 @@
 ## Visão Geral da Arquitetura
 
 ```
-Data_Lake/
-│
 ├── 📋 README.md                          [INÍCIO AQUI - Overview do projeto]
 ├── 📋 GUIA_EXECUCAO.md                   [Passo-a-passo detalhado]
 ├── 📋 requirements.txt                   [Dependências Python]

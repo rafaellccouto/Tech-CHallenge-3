@@ -103,7 +103,6 @@ COMECE AQUI
 **Público:** Qualquer pessoa começar  
 **Seções Principais:**
 - Visão geral do projeto
-- **Estrutura nova** (sem Data_Lake, estrutura corrigida)
 - Quickstart (3 passos)
 - Análises realizadas
 - Recomendações estratégicas

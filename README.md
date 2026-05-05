@@ -75,7 +75,8 @@ PROJETO-COVID-19/
 
 ```bash
 # Clonar ou baixar o projeto
-cd Data_Lake
+git clone https://github.com/rafaellccouto/Tech-CHallenge-3.git
+cd Tech-CHallenge-3
 
 # Criar ambiente Python
 python -m venv venv
