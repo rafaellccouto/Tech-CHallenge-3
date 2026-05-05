@@ -3,15 +3,18 @@
 ## 🎯 Resumo das Mudanças Executadas
 
 ### 1️⃣ **Estrutura de Diretórios Atualizada**
+
 - ✅ Criadas pastas: `dados/processed`, `dados/csv_meses`, `relatorios/graficos`
 - ✅ Dados XLSX organizados em `Dados_Base/` (fonte original)
 - ✅ Outputs consolidados em `relatorios/` (central)
 
 ### 2️⃣ **Requirements.txt Atualizado**
+
 - ✅ Adicionado `openpyxl==3.10.0` para ler arquivos XLSX
 - ✅ Adicionado `xlrd==2.0.1` para suporte adicional a Excel
 
 ### 3️⃣ **ETL Reescrito (etl_pnad_covid.py)**
+
 - ✅ Agora lê dados de `Dados_Base/` em formato XLSX
 - ✅ Consolida 3 meses (Maio, Agosto, Novembro 2020)
 - ✅ Gera 2 arquivos:
@@ -19,6 +22,7 @@
   - `dados/processed/indicadores_agregados_por_mes.csv`
 
 ### 4️⃣ **EDA Reescrita Completamente (eda_pnad_covid.py)**
+
 - ✅ Gera 4 gráficos PNG com 300dpi:
   1. **01_sintomas_evolucao.png** - Prevalência de sintomas por mês
   2. **02_taxa_internacao_sintomas.png** - Taxa de internação por sintoma
@@ -26,6 +30,7 @@
   4. **04_indice_transmissao_beta.png** - Parâmetro β e R₀
 
 ### 5️⃣ **Modelo SEIR Completo (modelo_seir.py)**
+
 - ✅ Implementa 4 cenários de simulação:
   - **Cenário 1:** Baseline Maio 2020 (β=0.45, R₀=4.5)
   - **Cenário 2:** Pressão Agosto 2020 (β=0.65, R₀=6.5)
@@ -39,6 +44,7 @@
 - ✅ Tabela de métricas: `metricas_seir_cenarios.csv`
 
 ### 6️⃣ **Script Master Criado (run_pipeline.py)**
+
 - ✅ Executa todo o pipeline automaticamente
 - ✅ Execução: `python run_pipeline.py`
 - ✅ Consolida todos os outputs
@@ -48,7 +54,9 @@
 ## 📊 Arquivos Gerados
 
 ### Gráficos (6 arquivos PNG em relatorios/graficos/)
-```
+
+```bash
+
 ✓ 01_sintomas_evolucao.png (158 KB)
 ✓ 02_taxa_internacao_sintomas.png (115 KB)
 ✓ 03_comportamento_evolucao.png (211 KB)
@@ -58,13 +66,15 @@
 ```
 
 ### Dados (em dados/processed/)
-```
+
+```bash
 ✓ pnad_covid_consolidado_maio_agosto_novembro_2020.csv (3.0 MB)
 ✓ indicadores_agregados_por_mes.csv (104 bytes)
 ```
 
 ### Métricas (em relatorios/)
-```
+
+```bash
 ✓ metricas_seir_cenarios.csv (206 bytes)
 ```
 
@@ -73,6 +83,7 @@
 ## 🔑 Destaques dos Resultados
 
 ### Análise Exploratória (EDA)
+
 | Indicador | Maio | Agosto | Novembro |
 |-----------|------|--------|----------|
 | Tosse | 35.2% | 42.1% | 28.5% |
@@ -82,6 +93,7 @@
 | Máscara | 72.1% | 78.9% | 68.3% |
 
 ### Modelo SEIR - Comparativo de Cenários
+
 | Cenário | β | R₀ | Pico | Dia | Taxa Ataque |
 |---------|---|----|----|---|---|
 | Maio | 0.45 | 4.50 | 2.7M | 84 | 98.8% |
@@ -96,12 +108,14 @@
 ## 🚀 Como Usar
 
 ### Opção 1: Pipeline Automatizado
+
 ```bash
 # Executar tudo de uma vez
 python run_pipeline.py
 ```
 
 ### Opção 2: Passo a Passo
+
 ```bash
 # ETL
 cd 02_ETL && python etl_pnad_covid.py
@@ -140,20 +154,24 @@ cd ../04_Modelo_SEIR && python modelo_seir.py
 ## ✨ Melhorias Implementadas
 
 ✅ **Migração de CSV para XLSX**
+
 - Dados agora lidos de `Dados_Base/` (arquivos Excel do IBGE)
 - Melhor compatibilidade com dados do IBGE
 
 ✅ **Plotagem Completa de Gráficos**
+
 - Todos os 6 gráficos propostos gerados
 - Qualidade de produção (300 dpi)
 - Formatação profissional
 
 ✅ **Modelo SEIR com 4 Cenários**
+
 - Comparação antes/durante/após pandemia
 - Simulação de mitigação agressiva
 - Métricas comparativas
 
 ✅ **Automação**
+
 - Script master para executar tudo
 - Estrutura modular e reutilizável
 - Documentação atualizada
@@ -171,7 +189,7 @@ cd ../04_Modelo_SEIR && python modelo_seir.py
 
 ## 📅 Data de Conclusão
 
-**30 de Abril de 2026**
+30 de Abril de 2026
 
 **Status:** ✅ **COMPLETO - PRONTO PARA PRODUÇÃO**
 
