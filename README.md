@@ -321,9 +321,8 @@ MIT License - Veja LICENSE.md
 
 ---
 
-## 👤 Autor
+## 👤 Autores
 
-**Data Analytics**  
 Rafael Couto<br>
 Alexsander Oliveira<br>
 Ronaldo Rodrigues<br>
