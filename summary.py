@@ -6,6 +6,7 @@ Visualiza um sumário visual de todos os arquivos gerados
 from pathlib import Path
 from datetime import datetime
 
+
 def human_readable_size(size_bytes):
     """Converte bytes para formato legível"""
     for unit in ['B', 'KB', 'MB', 'GB']:
@@ -14,13 +15,14 @@ def human_readable_size(size_bytes):
         size_bytes /= 1024.0
     return f"{size_bytes:.1f}TB"
 
+
 def print_summary():
     base_path = Path('.')
-    
-    print("\n" + "="*80)
+
+    print("\n" + "=" * 80)
     print("PROJETO PNAD-COVID-19: RESUMO DE ENTREGÁVEIS".center(80))
-    print("="*80 + "\n")
-    
+    print("=" * 80 + "\n")
+
     # 1. Gráficos
     print("GRÁFICOS GERADOS (6 arquivos PNG):")
     print("-" * 80)
@@ -29,10 +31,10 @@ def print_summary():
     for i, g in enumerate(graficos, 1):
         size = human_readable_size(g.stat().st_size)
         print(f"  {i}. {g.name:<45} ({size:>8})")
-    
+
     total_graficos = sum(g.stat().st_size for g in graficos)
     print(f"     {'Total':<45} ({human_readable_size(total_graficos):>8})\n")
-    
+
     # 2. Dados
     print("DADOS PROCESSADOS (2 arquivos CSV):")
     print("-" * 80)
@@ -42,10 +44,10 @@ def print_summary():
         size = human_readable_size(d.stat().st_size)
         lines = len(d.read_text().splitlines())
         print(f"  {i}. {d.name:<45} ({size:>8}, {lines:,} linhas)")
-    
+
     total_dados = sum(d.stat().st_size for d in dados)
     print(f"     {'Total':<45} ({human_readable_size(total_dados):>8})\n")
-    
+
     # 3. Documentação
     print("DOCUMENTAÇÃO ATUALIZADA:")
     print("-" * 80)
@@ -63,9 +65,9 @@ def print_summary():
             print(f"  [OK] {doc_name:<35} {desc} ({size})")
         else:
             print(f"  [ERRO] {doc_name:<35} {desc} (NÃO ENCONTRADO)")
-    
+
     print()
-    
+
     # 4. Scripts
     print("SCRIPTS PYTHON:")
     print("-" * 80)
@@ -80,11 +82,11 @@ def print_summary():
             print(f"  [OK] {script:<40} {desc}")
         else:
             print(f"  [ERRO] {script:<40} {desc} (NÃO ENCONTRADO)")
-    
-    print("\n" + "="*80)
+
+    print("\n" + "=" * 80)
     print("STATUS: PROJETO COMPLETO - PRONTO PARA PRODUÇÃO".center(80))
-    print("="*80 + "\n")
-    
+    print("=" * 80 + "\n")
+
     print("COMO USAR:")
     print("-" * 80)
     print("  # Opção 1: Executar tudo automaticamente")
@@ -93,14 +95,14 @@ def print_summary():
     print("  cd 02_ETL && python etl_pnad_covid.py")
     print("  cd ../03_Analise_Exploratoria && python eda_pnad_covid.py")
     print("  cd ../04_Modelo_SEIR && python modelo_seir.py\n")
-    
+
     print("DOCUMENTAÇÃO IMPORTANTE:")
     print("-" * 80)
     print("  1. Leia primeiro: CONCLUSAO.md (mudanças realizadas)")
     print("  2. Visão geral: README.md")
     print("  3. Detalhes técnicos: 05_Relatorios/ANALISE_TECNICA.md")
     print("  4. Recomendações: 05_Relatorios/RECOMENDACOES_HOSPITAL.md\n")
-    
+
     print("GRÁFICOS GERADOS:")
     print("-" * 80)
     print("  01_sintomas_evolucao.png           - Prevalência de sintomas")
@@ -109,10 +111,12 @@ def print_summary():
     print("  04_indice_transmissao_beta.png     - Parâmetro β e R₀")
     print("  05_seir_cenarios_completos.png     - 4 cenários SEIR")
     print("  06_seir_comparacao_infectados.png  - Comparação infectados\n")
-    
+
     print("=" * 80)
-    print("Projeto finalizado em: {}".format(datetime.now().strftime('%d/%m/%Y %H:%M:%S')).center(80))
+    print("Projeto finalizado em: {}".format(
+        datetime.now().strftime('%d/%m/%Y %H:%M:%S')).center(80))
     print("=" * 80 + "\n")
+
 
 if __name__ == '__main__':
     print_summary()
