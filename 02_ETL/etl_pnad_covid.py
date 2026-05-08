@@ -51,29 +51,32 @@ def carregar_dados_xlsx(file_path: str, mes: int) -> pd.DataFrame:
     logger.info(f"Carregando dados do mês {MESES_NOMES[mes]}...")
 
     try:
-        # Carregar arquivo XLSX (primeira aba)
-        df = pd.read_excel(file_path, sheet_name=0)
+        # Determinar quantas linhas de metadados pular
+        # A maioria tem 7 linhas, mas alguns meses (Agosto, Novembro) têm 8 (Nota 5)
+        df_test = pd.read_excel(file_path, sheet_name=0, nrows=10, header=None)
+        
+        # Verificar se linha 7 começa com "Nota 5"
+        skiprows = 8 if str(df_test.iloc[7, 0]).startswith("Nota 5") else 7
+        logger.info(f"Usando skiprows={skiprows}")
+        
+        # Carregar arquivo XLSX (primeira aba), pulando as linhas de metadados
+        df = pd.read_excel(file_path, sheet_name=0, skiprows=skiprows)
 
         logger.info(f"Dimensões originais: {df.shape}")
         logger.info(f"Primeiras colunas: {list(df.columns)[:10]}")
 
+        # Renomear coluna do mês para "Valor" (última coluna contém os valores)
+        mes_nome = MESES_NOMES[mes]
+        colunas_corretas = list(df.columns[:-1]) + ['Valor']
+        df = df.rename(columns={df.columns[-1]: 'Valor'})
+
+        logger.info(f"Coluna de mês '{mes_nome}' renomeada para 'Valor'")
+
         # Adicionar coluna de mês
         df['mes_entrevista'] = mes
-
-        # Tentar extrair colunas relevantes
-        colunas_disponiveis = [
-            col for col in df.columns if col not in [
-                'Unnamed: 0', 'index']]
-
-        if len(colunas_disponiveis) > 0:
-            df_filtrado = df[colunas_disponiveis].copy()
-            logger.info(f"[OK] Dimensões filtradas: {df_filtrado.shape}")
-            logger.info(
-                f"[OK] Colunas após seleção: {len(df_filtrado.columns)}")
-            return df_filtrado
-        else:
-            logger.warning("Nenhuma coluna válida encontrada")
-            return df.copy()
+        
+        logger.info(f"[OK] Dimensões após processamento: {df.shape}")
+        return df
 
     except FileNotFoundError:
         logger.error(f"Arquivo não encontrado: {file_path}")
@@ -93,20 +96,24 @@ def limpar_dados(df: pd.DataFrame) -> pd.DataFrame:
 
     logger.info("Iniciando limpeza de dados...")
 
-    # 1. Remover colunas completamente vazias
+    # 1. Remover primeira linha se for completamente vazia (metadado)
+    if df_limpo.iloc[0].isna().all():
+        df_limpo = df_limpo.iloc[1:].reset_index(drop=True)
+        logger.info("Removida primeira linha de metadados (vazia)")
+
+    # 2. Remover colunas completamente vazias
     df_limpo.dropna(axis=1, how='all', inplace=True)
 
     # 2. Remover linhas completamente vazias
     df_limpo.dropna(axis=0, how='all', inplace=True)
 
-    # 3. Converter valores para numéricos quando possível
-    for col in df_limpo.columns:
-        if col not in ['mes_entrevista', 'UF']:
-            try:
-                # Tentar conversão numérica
-                df_limpo[col] = pd.to_numeric(df_limpo[col], errors='coerce')
-            except BaseException:
-                pass
+    # 3. Manter colunas de texto como estão (não converter para numérico)
+    # Apenas a coluna de Valor pode ser numérica
+    if 'Valor' in df_limpo.columns:
+        try:
+            df_limpo['Valor'] = pd.to_numeric(df_limpo['Valor'], errors='coerce')
+        except BaseException:
+            pass
 
     # 4. Reportar dados faltantes
     logger.info("\nDados Faltantes (top 10):")
